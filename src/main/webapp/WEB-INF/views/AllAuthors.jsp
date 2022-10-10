@@ -103,7 +103,7 @@
 
     <c:forEach items="${group}" var="author">
         <tr>
-            <td>${author.authorID}</td>
+<%--            <td>${author.authorID}</td>--%>
             <td>${author.firstName}</td>
             <td>  ${author.lastName}</td>
 

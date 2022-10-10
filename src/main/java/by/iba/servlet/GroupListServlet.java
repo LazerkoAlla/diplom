@@ -21,15 +21,16 @@ public class GroupListServlet extends HttpServlet {
         AuthorDao daoAuthor = new AuthorDao();
 
         String firstName = request.getParameter("firstName"); //name
-        String lastName = request.getParameter("lastName");
-        int id = Integer.parseInt(request.getParameter("authorID")); //name
+//        String lastName = request.getParameter("lastName");
+        int id = Integer.parseInt(request.getParameter("authorID")); //name е надо если просто добавлять имя и фамили
+        //ид автоинкремент, поэтому он по сути и не нужен
 //        int authorID = request.getParameter("authorID");
 //        int authorID = Integer.parseInt(request.getParameter("authorID"));
 
 //        if (firstName.isEmpty() || lastName.isEmpty()) {
 //            request.setAttribute("errorMessage", "Заполните все поля");
-//        } else {
-//            daoAuthor.insertAuthor(new Author(id,firstName, lastName));
+////        } else {
+//            daoAuthor.insertAuthor(new Author(firstName, lastName));
 //            daoAuthor.deleteAuthor(new Author(id));
         daoAuthor.updateAuthor(new Author(firstName, id)); //почему-то теперь вставляет нулы
 //        }

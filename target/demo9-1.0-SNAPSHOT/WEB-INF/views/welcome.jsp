@@ -89,7 +89,7 @@
 <%--        <td>${author.authorID}</td>--%>
         <td>${author.firstName}</td>
         <td>  ${author.lastName}</td>
-        <td>${author.authorID}</td>
+<%--        <td>${author.authorID}</td>--%>
 
       </tr>
     </c:forEach>
@@ -102,7 +102,7 @@
   <p><font color="red">${errorMessage}</font></p>
   <form method="POST" action="GroupListServlet"> Новый :
     <p> Введите иd <input name="authorID" type="text" /> </p>
-    <p> Введите имя <input name="firstNAme" type="text" /> </p>
+    <p> Введите имя <input name="firstName" type="text" /> </p>
     <p> Введите фамилию <input name="lastName" type="text" /> </p>
     <input name="add" type="submit" />
   </form>
@@ -117,7 +117,7 @@
 
 <div>
   <form method="POST" action="GroupListServlet"> change :
-    <p> измените имя <input name="name" type="text" /> </p>
+    <p> измените имя <input name="firstName" type="text" /> </p>
     <p> измените иd <input name="authorID" type="text" /> </p>
     <input name="update" type="submit" />
   </form>

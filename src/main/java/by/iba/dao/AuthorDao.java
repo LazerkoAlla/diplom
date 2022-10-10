@@ -54,7 +54,7 @@ public class AuthorDao {
             preparedStatement.setString(2, author.getLastName());
             preparedStatement.executeUpdate();
             preparedStatement.close();
-            logger.info("New Author " + author.getFirstName() + " inserted");
+//            logger.info("New Author " + author.getFirstName() + " inserted");
         } catch (SQLException e) {
             e.printStackTrace();
         }
