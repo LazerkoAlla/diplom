@@ -79,12 +79,6 @@
 </div>
 
 
-<table>
-    <td><a href="booksinfo.jsp">authors info</a> </td>
-    <td><a href="AllAuthors.jsp">authors info</a> </td>
-</table>
-<br>
-
 
 <table border="1" id="resizable">
 <%--    <form method="POST" action="MainPageServlet" > удалить :--%>
@@ -95,15 +89,12 @@
     <tr >
 
         <th>Имя</th>
-        <th>Телефон</th>
-        <th>email</th>
-
+        <th>фамилия</th>
 
     </tr>
 
     <c:forEach items="${group}" var="author">
         <tr>
-<%--            <td>${author.authorID}</td>--%>
             <td>${author.firstName}</td>
             <td>  ${author.lastName}</td>
 

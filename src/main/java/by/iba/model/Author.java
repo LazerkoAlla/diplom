@@ -43,11 +43,6 @@ public class Author {
         return lastName;
     }
 
-//    public Author(Author author) {
-//        this.firstName = author.firstName;
-//        this.lastName = author.lastName;
-//    }
-
     public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;

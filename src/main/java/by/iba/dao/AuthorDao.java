@@ -1,5 +1,6 @@
 package by.iba.dao;
 import by.iba.model.Author;
+import by.iba.model.Books;
 import by.iba.util.ConnectorDB;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +18,7 @@ public class AuthorDao {
     private final static String SQL_INSERT_AUTHORS = "INSERT INTO authors(firstName, lastName) VALUES (?,?)";
     private final static String SQL_DELETE_AUTHORS = "delete from authors where authorID = ? ";
     private final static String SQL_UPDATE_AUTHORS = "UPDATE authors SET firstName=? where authorID = ?";
-    private final static String SQL_SEARCH_AUTHORS = "select * from authors where authorID=?";
+    private final static String SQL_SEARCH_AUTHORS = "select * from authors where firstName like ? ";
 
     private static Connection connection;
 
@@ -92,45 +93,31 @@ public class AuthorDao {
         }
     }
 
-    public Author searchAthor1(Author author) {
 
-//        con = ConnectorDB.getConnection();
+    public List<Author> searchAuthors(String firstName) { //метод по поиску авторов
+        List<Author> authors = new LinkedList<Author>();
+
         try {
-            PreparedStatement ps =
-                    connection.prepareStatement(SQL_UPDATE_AUTHORS);
-            ps.setInt(1,author.getAuthorId());
+//            String query = "select * from authors where firstName like ?";
+            String query = SQL_SEARCH_AUTHORS;
+            ps = connection.prepareStatement(query);
+            ps.setString(1, "%" + firstName + "%");
             rs = ps.executeQuery();
             while (rs.next()) {
+                Author author = new Author();
                 author.setAuthorId(rs.getInt("authorID"));
                 author.setFirstName(rs.getString("firstName"));
                 author.setLastName(rs.getString("lastName"));
 
+                authors.add(author);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return author;
-    }
 
-    public List<Author> searchAuthor(Author author) {
-        List<Author> authors = new ArrayList<Author>();
-        try {
-            PreparedStatement preparedStatement =
-                    connection.prepareStatement(SQL_SEARCH_AUTHORS);
 
-            preparedStatement.setString(1, author.getFirstName());
-//            ResultSet rs;
-
-        rs=preparedStatement.executeQuery();
-            preparedStatement.close();
-            logger.info(" Author " + author.getFirstName()  +" found");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return authors;
     }
-
-
 
 
 

@@ -33,7 +33,7 @@ public class DeleteCommentServlet extends HttpServlet {
 //
 //        }
 
-        request.setAttribute("commentText", daoReview.getReviews());
+//        request.setAttribute("commentText", daoReview.getReviewsForBook());
 
 //        String commentDelete = request.getParameter("commentDelete"); //comment
 //        daoReview.deleteReview(new Review(commentText));

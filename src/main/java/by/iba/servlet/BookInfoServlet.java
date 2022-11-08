@@ -29,12 +29,13 @@ public class BookInfoServlet extends HttpServlet {
         ReviewDao daoReview = new ReviewDao();
 
         String commentText = request.getParameter("commentText"); //comment
+//       int bookID = Integer.parseInt(request.getParameter("bookID"));
 
 
         if (commentText.isEmpty()) {
             request.setAttribute("errorMessage", "Заполните все поля");
         } else {
-            daoReview.insertReview(new Review(commentText));
+            daoReview.updateReview(new Review(commentText));
 
         }
 

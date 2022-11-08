@@ -1,15 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lazer
-  Date: 28.09.2022
-  Time: 17:02
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<%--    <link rel="stylesheet" type="text/css" href="css/style.css" />--%>
+    <link rel="stylesheet" type="text/css" type="text/html" href="css/styles.css" />
     <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
@@ -21,130 +14,35 @@
         } );
     </script>
     <style>
-
-        input::-webkit-input-placeholder {
-            color: #B6C0A5;
-            font-style: italic;
-            background: #E0EFCA;
-        }
-        input:-moz-placeholder {
-            color: #B6C0A5;
-            font-style: italic;
-            background: #E0EFCA;
-        }
-        input:-ms-input-placeholder {
-            color: #B6C0A5;
-            font-style: italic;
-            background: #E0EFCA;
-        }
-        #right {
-            float: right;
-            padding-right: 20px;
-        }
-
-        #test {
-            background: url(https://images.pexels.com/photos/3728084/pexels-photo-3728084.jpeg?auto=compress&cs=tinysrgb&w=1600) no-repeat;
-            -moz-background-size: 100%; /* Firefox 3.6+ */
-            -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-            -o-background-size: 100%; /* Opera 9.6+ */
-            background-size: 100%;
-            color: whitesmoke; /* Цвет текста */
-            width: 100%;
-        }
-        /* Links border-bottom: 1px dotted #333333; */
-
-        a { text-decoration: none; font-weight: bold;
-
-            display:flex;
-            justify-content:space-around;
-            align-items:center;
-            flex-wrap:wrap;
-
+        .my_boks {
+            position: fixed;
+            /*width: 60%;*/
+            display: block;
+            margin: 0 auto;
+            /*padding: 0;*/
+            text-align: center;
             /*Чтобы ничего не слиплось*/
+            /*margin-right: 60px;*/
+            /*margin-left: 60px;*/
+
+            top:12%;
+            left:20%;
+            right: 20%;
+
             display:inline-block;
             padding:10px;
-            float: right;
         }
-        h1 {
-            color: #81a2c3;
-        }
-
-        a:link { color: #567ec4; border-bottom-color: #567ec4;}
-
-        a:visited { color: #81a2c3; border-bottom-color: #81a2c3; }
-
-        a:hover, a:active { color: #cc3333; border-bottom-style: solid; border-bottom-color: #cc3333; }
-        /* Lists */
-
-        ul, ol, dl
-        {
-            margin: 15px 25px;
-            line-height: 2.0em;
-        }
-
-        ol { margin-left: 30px; }
-
-        ul { list-style-type: square; }
-        /* Navigation */
-
-        #navigation ul { margin: 0; padding: 0; list-style-type: none; float: left; }
-
-        #navigation li { float: left; }
-
-        #navigation a
-        {
-            float: right;
-            display: block;
-            color: #567ec4;
-            padding: 5px 5px;
-            border-bottom-width: 0;
-        }
-
-        #navigation a:hover, #navigation a:active
-        {
-            color: #000000;
-        }
-
-        #navigation li.active a
-        {
-            color: #000000;
-        }
-        #div {
-            width: auto;
-            height: 40px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            /*margin-bottom: 100px;*/
-            /*margin: 80px;*/
+        .my_boks1, .my_boks2, .my_boks3 {
+            margin: 10px;
+            padding: 50px 60px;
+            width: calc(30% - 40px);
+            height: 95px;
+            display: inline-block;
             opacity: 0.8;
-            background: ghostwhite; /* Цвет фона */
-            padding: 10px; /* Поля вокруг текста */
-
-
+            background-color: whitesmoke;
+            border: 3px;
         }
-        #footer {
-
-            position: fixed; /* Фиксированное положение */
-            left: 0; bottom: 0; /* Левый нижний угол */
-            padding: 10px; /* Поля вокруг текста */
-            background: whitesmoke; /* Цвет фона */
-            color: #fff; /* Цвет текста */
-            width: 100%; /* Ширина слоя */
-            height: 40px;
-            opacity: 0.8;
-            color:#567ec4;
-            font-size: 15px;
-            /*font-style: italic;*/
-            font-weight: bold;
-            display:flex;
-            justify-content:space-around;
-            align-items:center;
-            flex-wrap:wrap;
-        }
-        #header{
+        #links{
             position: absolute; /* Фиксированное положение */
             left: 0; bottom: 110px; /* Левый нижний угол */
             padding: 10px; /* Поля вокруг текста */
@@ -165,237 +63,114 @@
             left:45%;
             right: 45%;
         }
+             /* Кнопка выпадающего списка */
+         .dropbtn {
+             background-color: whitesmoke;
+             font-size: 15px;
+             font-weight: bold;
+             color: #567ec4;
+             opacity: 0.8;
+             padding: 20px;
+             border: none;
+             text-decoration: none;
+         }
 
-        #center {
-
-            position: fixed; /* Фиксированное положение */
-            left: 0; bottom: 0; /* Левый нижний угол */
-            padding: 10px; /* Поля вокруг текста */
-            background: whitesmoke; /* Цвет фона */
-            color: #fff; /* Цвет текста */
-            width: 100%; /* Ширина слоя */
-            height: 40px;
-            opacity: 0.8;
-            color:#567ec4;
-            font-size: 15px;
-            /*font-style: italic;*/
-            font-weight: bold;
-            display:flex;
-            justify-content:space-around;
-            align-items:center;
-            flex-wrap:wrap;
-        }
-        /*!*div { box-sizing: border-box;*!*/
-
-        /*}*/
-        .my_boks {
-            position: fixed;
-            /*width: 60%;*/
-            display: block;
-            margin: 0 auto;
-            /*padding: 0;*/
-            text-align: center;
-            /*Чтобы ничего не слиплось*/
-            /*margin-right: 60px;*/
-            /*margin-left: 60px;*/
-
-            top:12%;
-            left:20%;
-            right: 20%;
-
-            display:inline-block;
-            /*padding:10px;*/
-        }
-        .my_boks1, .my_boks2, .my_boks3 {
-            margin: 10px;
-            padding: 50px 60px;
-            width: calc(22% - 40px);
+        /* Контейнер <div> - необходим для размещения выпадающего содержимого */
+        .dropdown {
+            position: relative;
             display: inline-block;
+        }
+
+        /* Выпадающее содержимое (скрыто по умолчанию) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: whitesmoke;
             opacity: 0.8;
-        }
-        .my_boks1 { background-color: whitesmoke; border: 3px; }
-        .my_boks2 { background-color: whitesmoke; border: 3px; }
-        .my_boks3 { background-color: whitesmoke; border: 3px; }
-
-
-         img{
-            position: -ms-device-fixed;
-            margin-top: -20px;
-            width: 70px;
-            height: 90px;
-            /*margin-left: 0px;*/
-            margin-right: 60px;
-            margin-bottom: 10px;
-
+            min-width: 200px;
+            /*box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);*/
+            z-index: 1;
         }
 
+        /* Ссылки внутри выпадающего списка */
+        .dropdown-content a {
+            padding: 25px;
+            text-decoration: none;
+            /*display: block;*/
+            color: #567ec4;
+        }
+
+         /*Изменение цвета выпадающих ссылок при наведении курсора */
+        .dropdown-content a:hover {color: #cc3333; border-bottom-style: solid; border-bottom-color: #cc3333;}
+
+        /* Показать выпадающее меню при наведении курсора */
+        .dropdown:hover .dropdown-content {
+            display: block;
+            padding: 20px 20px;
+        }
+
+        /* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
+        .dropdown:hover .dropbtn {color: #cc3333; border-bottom-style: solid; border-bottom-color: #cc3333;}
     </style>
+
     <title>the BOOK</title>
-
-
     <h1>the BOOK</h1>
 <br>
-
-<%--    <div id="navigation">--%>
-<%--        <ul>--%>
-<%--            <li><a href="#">Home</a></li>--%>
-<%--            <li><a href="#about/">About</a></li>--%>
-<%--            <li><a href="#contact/">Contact</a></li>--%>
-<%--            <li><a href="LoginServlet">Вход</a></li>--%>
-<%--            <li><a href="RegisterServlet">Регистрация</a></li>--%>
-<%--        </ul>--%>
-<%--    </div>--%>
-
+    <form method="POST" action="MainPageServlet">
     <div id="div">
         <a href="MainPageServlet">Главная страница</a>
-        <a href="BookInfoServlet">About</a>
-        <a href="#contact/">Contact</a>
+<%--        <a href="BookInfoServlet">About</a>--%>
+        <a href="ContactServlet">Контакты</a>
         <a href="LoginServlet">Вход</a>
         <a href="RegisterServlet">Регистрация</a>
+        <a href="AdminPanelServlet">Админ панель</a>
+<%--        поменяла--%>
+        <input id="input" name="title" type="text" placeholder="Поиск"/>
+<%--        <%@include file="adminPage.jsp"%>--%>
     </div>
-
-<%--    <form action="RegisterServlet" method="POST" >--%>
-<%--    <div id="right">--%>
-<%--        <input type="submit" value="Зарегистрироваться"/>--%>
-<%--&lt;%&ndash;        <a href="RegisterServlet">Регистрация</a>&ndash;%&gt;--%>
-<%--        &lt;%&ndash; чтобы ссылка работала, необходимо в ахрев добавить ссылку на соотв сервлет--%>
-<%--        лучше делать форму с ссылкой на сервлет, чтобы это была кнопка, а не просто ссылка&ndash;%&gt;--%>
-<%--    </div>--%>
-<%--    </form>--%>
-<%--    <br>--%>
-<%--    <form action="LoginServlet" method="POST">--%>
-<%--    <div id="right">--%>
-<%--        <input type="submit" value="Вход"/>--%>
-<%--    </div>--%>
-<%--    </form>--%>
+    </form>
 </head>
 <body id="test">
 
-<div class="my_boks" >
-    <div class="my_boks1" >
-        <img src="https://almabooks.com/wp-content/uploads/2016/10/9781847493736.jpg" >
-        <a class="my_boks01" href="#">1 Блок</a>
-        1 Блок</div>
-    <div class="my_boks2" >
-        <img src="https://almabooks.com/wp-content/uploads/2016/10/9781847493736.jpg" >
-        <a class="my_boks01" href="#">1 Блок</a>
-        2 Блок</div>
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        3 Блок</div>
-    <div class="my_boks1">
-        <a class="my_boks01" href="#">1 Блок</a>
-        4 Блок</div>
-    <div class="my_boks2">
-        <a class="my_boks01" href="#">1 Блок</a>
-        5 Блок</div>
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        6 Блок</div>
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        6 Блок</div>
-
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        6 Блок</div>
-
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        6 Блок</div>
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        6 Блок</div>
-
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        6 Блок</div>
-
-    <div class="my_boks3">
-        <a class="my_boks01" href="#">1 Блок</a>
-        6 Блок</div>
 
 
-
-
-
+<div class="dropdown">
+    <button class="dropbtn">Каталог</button>
+    <div class="dropdown-content">
+        <a href="ChildrenBookServlet">Детская литература</a>
+        <a href="DetectiveBookServlet">Детективы</a>
+        <a href="NovelBookServlet">Романы</a>
+        <a href="EducationBookServlet">Образование</a>
+    </div>
 </div>
 
 
-<%--<form>--%>
-<%--    <p><select name="food">--%>
-<%--            <option value="1"  class="icon-ok">+375257371482</option>--%>
-<%--            <option value="0" class="icon-error">+375299895468</option>--%>
-<%--    </select></p>--%>
-<%--</form>--%>
-<table border="1">
-    <caption>Список авторов</caption>
-    <tr>
-        <th>Имя</th>
-        <th>Фамилия</th>
-    </tr>
-
-    <c:forEach items="${group}" var="author">
-        <tr>
-            <td>${author.firstName}</td>
-            <td>  ${author.lastName}</td>
-<%--            <td>${author.authorID}</td>--%>
-
-        </tr>
-    </c:forEach>
-
-    </td>
-    </td>
-
-</table>
 
 
 
-<%--    <table border="1">- для комментариев на главной странице-%>
-<%--        <caption>Comments</caption>--%>
-<%--        <tr>--%>
-<%--            <th>Comment</th>--%>
-<%--        </tr>--%>
+<div class="my_boks" >
+    <div class="my_boks1" >
+<%--        <img src="https://almabooks.com/wp-content/uploads/2016/10/9781847493736.jpg" >--%>
+        <a href="ParticularBook3Servlet">Джейн Эйр</a>
+        1 Блок</div>
+    <div class="my_boks2" >
+<%--        <img src="https://almabooks.com/wp-content/uploads/2016/10/9781847493736.jpg" >--%>
+        <a href="ParticularBook4Servlet">Гордость и предубеждение</a>
+        2 Блок</div>
+    <div class="my_boks3">
+        <a href="ParticularBook1Servlet">Повесть о Гэндзи</a>
+        3 Блок</div>
+    <div class="my_boks1">
+        <a href="ParticularBook5Servlet">Эпоха невинности</a>
+        4 Блок</div>
 
-<%--        <c:forEach items="${commentText}" var="review">--%>
-<%--            <tr>--%>
-<%--                <td>${review.commentText}</td>--%>
+</div>
 
-<%--            </tr>--%>
-<%--        </c:forEach>--%>
-
-<%--        </td>--%>
-<%--        </td>--%>
-
-<%--    </table>--%>
-
-
-<%--</form>--%>
-
-<form method="POST" action="MainPageServlet"> Новый :
-    <p> Введите имя <input name="firstName" type="text" /> </p>
-    <input name="search" type="submit" />
-<%--    <p> Введите иd <input name="id" type="text" /> </p>--%>
-<%--    <input name="search" type="submit" />--%>
-</form>
-
-<%--<form action="" method="get">--%>
-<%--    <input name="s" placeholder="Искать здесь..." type="search">--%>
-<%--    <button type="submit" a href="SearchServlet">Поиск</button>--%>
-<%--    <a href="SearchServlet">Поиск</a>--%>
-<%--</form>--%>
-<div id="header">
+<div id="links">
     <a href="#">1</a>
     <a href="#">2</a>
     <a href="#">3</a>
 </div>
-
-
-
-
-
-
-
 
 <div id="footer">
     Все права защищены &copy;

@@ -10,14 +10,106 @@
 <html>
 <head>
     <title>the BOOK</title>
-    <link rel="stylesheet" type="text/css" href="css/div.css" />
+<%--    <link rel="stylesheet" type="text/css" href="css/div.css" />--%>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#resizable" ).resizable();
+        } );
+    </script>
 
 </head>
-<body id="test">
+<style>
 
+    #div1 {
+        width: auto;
+        height: 40px;
+        position: -ms-device-fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /*margin-bottom: 100px;*/
+        /*margin: 80px;*/
+        opacity: 0.8;
+        background: ghostwhite; /* Цвет фона */
+        padding: 10px; /* Поля вокруг текста */
+
+
+    }
+    #ri { /* основной див с контентом */
+
+        width: 90%;
+        position: relative; /* Фиксированное положение */
+        left: 0;  /* Левый нижний угол */
+        /*padding: 50px 50px; !* Поля вокруг текста *!*/
+        background: whitesmoke; /* Цвет фона */
+        color: #fff; /* Цвет текста */
+
+        height: 77%;
+        opacity: 0.8;
+        color:#567ec4;
+        font-size: 15px;
+        /*font-style: italic;*/
+        font-weight: bold;
+        /*display: flex;*/
+        justify-content:space-around;
+        align-items:center;
+        flex-wrap:wrap;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    table {
+        color: black; /* Цвет текста */
+    }
+
+    /*#footer1 {*/
+
+    /*    position: relative; !* Фиксированное положение *!*/
+    /*    left: 0; bottom: 0; !* Левый нижний угол *!*/
+    /*    padding: 0px; !* Поля вокруг текста *!*/
+    /*    background: whitesmoke; !* Цвет фона *!*/
+    /*    color: #fff; !* Цвет текста *!*/
+    /*    width: 100%; !* Ширина слоя *!*/
+    /*    !*padding-bottom: 0px;*!*/
+    /*    height: 50px;*/
+    /*    opacity: 0.8;*/
+    /*    color:#567ec4;*/
+    /*    font-size: 15px;*/
+
+    /*    font-weight: bold;*/
+    /*    display:flex;*/
+    /*    justify-content:space-around;*/
+    /*    align-items:center;*/
+    /*    flex-wrap:wrap;*/
+    /*    overflow:auto;*/
+    /*}*/
+
+</style>
+<body id="test">
+<%--  таблицу с комментами можно удалить и написать инфу о нас типо  --%>
+<form method="POST" action="MainPageServlet">
+    <div id="div">
+
+    <a href="MainPageServlet">Главная страница</a>
+    <a href="BookInfoServlet">About</a>
+        <a href="ContactServlet">Контакты</a>
+    <a href="LoginServlet">Вход</a>
+    <a href="RegisterServlet">Регистрация</a>
+        <input id="input" name="title" type="text" placeholder="Поиск"/>
+</div>
+</form>
 
 <br>
-
+<div id="ri">
 <table border="1">
     <caption>Comments</caption>
     <tr>
@@ -34,8 +126,6 @@
         </tr>
     </c:forEach>
 
-    </td>
-    </td>
 <%--    </form>--%>
 
 </table>
@@ -48,14 +138,14 @@
 
 
 <div>
-    <form method="POST" action="DeleteCommentServlet"> удалить :
-        <p> Введите иd <input name="commentText" type="text" /> </p>
-        <input name="delete" type="submit" />
-    </form>
+<%--    <form method="POST" action="DeleteCommentServlet"> удалить :--%>
+<%--        <p> Введите иd <input name="commentText" type="text" /> </p>--%>
+<%--        <input name="delete" type="submit" />--%>
+<%--    </form>--%>
 </div>
 
 
-<form action="BookInfoServlet" method="post">
+
 
 
 <%--    <div class="comments-block">--%>
@@ -128,15 +218,25 @@
 
 <%--    </div>--%>
 
+
+
+
+<p><font color="red">${errorMessage}</font></p>
+<form method="POST" action="InfoServlet"> Новый :
+    <p> Введите текст <input name="title" type="text" /> </p>
+    <input name="add" type="submit" />
+</form>
+<form action="InfoServlet" method="post">
+
     <table border="1">
-        <caption>Comments</caption>
+        <caption>books</caption>
         <tr>
-            <th>Comment</th>
+            <th>book</th>
         </tr>
 
-        <c:forEach items="${commentText}" var="review">
+        <c:forEach items="${title}" var="books">
             <tr>
-                <td>${review.commentText}</td>
+                <td>${books.title}</td>
 
             </tr>
         </c:forEach>
@@ -145,8 +245,11 @@
         </td>
 
     </table>
-
-
 </form>
+
+<div id="footer">
+    Все права защищены &copy;
+</div>
+
 </body>
 </html>
